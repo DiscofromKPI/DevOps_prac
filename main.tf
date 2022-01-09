@@ -40,7 +40,7 @@ resource "aws_instance" "docker_site" {
     inline = [
     "sudo apt-get update && install curl",
     "curl -sSL https://get.docker.com/ | sh",
-    "sudo docker run -d --name docker_site -p 80:80 DiscofromKPI/DevOps_prac",
+    "sudo docker run -d --name docker_site -p 80:80 straxseller/devops_prac",
     "sudo docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup -i 10"
     ]
   }
@@ -53,14 +53,6 @@ resource "aws_instance" "docker_site" {
 resource "aws_security_group" "allow_web" {
   name        = "allow_web_traffic"
   description = "Allow Web inbound traffic"
-
-  ingress {
-    description = "HTTPS"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 
   ingress {
     description = "HTTP"
