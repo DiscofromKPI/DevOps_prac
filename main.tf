@@ -33,7 +33,7 @@ resource "aws_instance" "docker_site" {
       type        = "ssh"
       host        = self.public_ip
       user        = "ubuntu"
-      private_key = file("docker_site.pem")
+      private_key = file("connect_key.pem")
 }
 
     provisioner "remote-exec" {
