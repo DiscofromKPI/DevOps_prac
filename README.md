@@ -5,3 +5,4 @@
 ### Configuration
 
 Before start you need to install the [Terraform](https://www.terraform.io/downloads) <br/>
+Also you need to have the [AWS Account](https://aws.amazon.com/) <br/>
