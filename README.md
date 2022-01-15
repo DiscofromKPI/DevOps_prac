@@ -82,3 +82,12 @@ resource "aws_security_group" "allow_web" {
 }
 ```
 You can also setup the **https** if you have the certificate
+
+Also setup the **Elastic IP**. It commonly used to help with fault-tolerant instances or software. For example, if you have an EC2 instance that has an Elastic IP address and that instance is stopped or terminated, you can remap the address and re-associate it with another instance in your account.
+
+```tf
+resource "aws_eip" "lb" {
+  instance = aws_instance.docker_site.id
+  vpc      = true
+}
+```
