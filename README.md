@@ -35,3 +35,5 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] 
 }
 ```
+Then setup the ```aws_intance```, use the KeyPair, which you can setup in the [AWS EC2 KeyPairs](https://us-east-2.console.aws.amazon.com/ec2/v2) <br/>
+Download the **.pem** file and import this key to your instance, keep the key hidden!
