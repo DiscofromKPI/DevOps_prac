@@ -6,3 +6,15 @@
 
 Before start you need to install the [Terraform](https://www.terraform.io/downloads) <br/>
 Also you need to have the [AWS Account](https://aws.amazon.com/) <br/>
+
+###Getting Started
+
+Setup the credentials, you can find them at the [IAM AWS](https://console.aws.amazon.com/iam) <br/>
+
+Then save them and export like 
+
+```bash
+export AWS_ACCESS_KEY_ID="Here your key"
+export AWS_SECRET_ACCESS_KEY="Here your secret key"
+```
+
