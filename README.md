@@ -37,3 +37,16 @@ data "aws_ami" "ubuntu" {
 ```
 Then setup the ```aws_intance```, use the KeyPair, which you can setup in the [AWS EC2 KeyPairs](https://us-east-2.console.aws.amazon.com/ec2/v2) <br/>
 Download the **.pem** file and import this key to your instance, keep the key hidden!
+
+Run the linux commands to setup docker and watchtower
+**Watchtower helps us to update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry.**
+```
+provisioner "remote-exec" {
+    inline = [
+    "sudo apt-get update && install curl",
+    "curl -sSL https://get.docker.com/ | sh",
+    "sudo docker run -d --name [Your_resource_name] --log-driver=awslogs --log-opt awslogs-group=[Your_log_group_name] -p 80:80 straxseller/devops_prac",
+    "sudo docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup -i 10",
+    ]
+  }
+```
