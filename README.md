@@ -154,5 +154,4 @@ resource "aws_cloudwatch_log_group" "logs" {
 ### DNS
 Setup the DNS for your server using [Route53](https://console.aws.amazon.com/route53/v2)<br/>
 
-<h3 align="center" link="samoyed.space">samoyed.space</h3>
 ### Check it out [samoyed.space](https://samoyed.space) <br/>
