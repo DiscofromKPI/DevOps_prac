@@ -39,6 +39,7 @@ Then setup the ```aws_intance```, use the KeyPair, which you can setup in the [A
 Download the **.pem** file and import this key to your instance, keep the key hidden!
 
 Run the linux commands to setup docker and watchtower
+
 **Watchtower helps us to update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry.**
 ```bash
 provisioner "remote-exec" {
