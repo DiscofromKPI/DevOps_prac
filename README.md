@@ -116,3 +116,36 @@ Setup the github actions to run pipelines and check image build(steps showing):
           push: true
           tags: straxseller/devops_prac:latest
 ```
+
+Create the ```log_group``` and ```metric_alarm``` for monitoring and logging:
+
+**Metric_alarm**
+```tf
+resource "aws_cloudwatch_metric_alarm" "foobar" {
+  alarm_name                = "terraform-alarm"
+  comparison_operator       = "GreaterThanOrEqualToThreshold"
+  evaluation_periods        = "2"
+  metric_name               = "CPUUtilization"
+  namespace                 = "AWS/EC2"
+  period                    = "120"
+  statistic                 = "Average"
+  threshold                 = "2"
+  alarm_description         = "This metric monitors ec2 cpu utilization"
+  insufficient_data_actions = []
+  dimensions = {
+    InstanceId = aws_instance.docker_site.id
+  }
+}
+```
+
+**Log_Group**
+```tf
+resource "aws_cloudwatch_log_group" "logs" {
+  name = "logs"
+
+  tags = {
+    Environment = "production"
+    Application = "serviceA"
+  }
+}
+```
