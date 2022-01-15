@@ -1,5 +1,6 @@
 <h2 align="center">DevOps test task</h2>
-<h3 align="center">samoyed.space</h3>
+<h3 align="center" link="samoyed.space">samoyed.space</h3>
+
 [![Build status](https://ci.appveyor.com/api/projects/status/n4uj9qfuywrkdrhb/branch/main?svg=true)](https://ci.appveyor.com/project/DiscofromKPI/DevOps_prac/branch/main)
 
 ### Configuration
