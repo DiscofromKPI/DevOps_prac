@@ -138,6 +138,7 @@ resource "aws_cloudwatch_metric_alarm" "foobar" {
 }
 ```
 
+Setup the DNS for your server using [Route53](https://console.aws.amazon.com/route53/v2)<br/>
 **Log_Group**
 ```tf
 resource "aws_cloudwatch_log_group" "logs" {
