@@ -40,7 +40,7 @@ Download the **.pem** file and import this key to your instance, keep the key hi
 
 Run the linux commands to setup docker and watchtower
 **Watchtower helps us to update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry.**
-```
+```bash
 provisioner "remote-exec" {
     inline = [
     "sudo apt-get update && install curl",
