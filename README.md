@@ -91,7 +91,7 @@ resource "aws_eip" "lb" {
   vpc      = true
 }
 ```
-
+### Actions
 Setup the github actions to run pipelines and check image build(steps showing):
 ```yml
  steps:
@@ -116,7 +116,7 @@ Setup the github actions to run pipelines and check image build(steps showing):
           push: true
           tags: straxseller/devops_prac:latest
 ```
-
+### Monitoring and Logging
 Create the ```log_group``` and ```metric_alarm``` for monitoring and logging:
 
 **Metric_alarm**
@@ -150,5 +150,5 @@ resource "aws_cloudwatch_log_group" "logs" {
   }
 }
 ```
-
+### DNS
 Setup the DNS for your server using [Route53](https://console.aws.amazon.com/route53/v2)<br/>
