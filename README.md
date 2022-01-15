@@ -1,5 +1,5 @@
 <h2 align="center">DevOps test task</h2>
-<h3 align="center" link="samoyed.space">samoyed.space</h3>
+
 
 [![Build status](https://ci.appveyor.com/api/projects/status/n4uj9qfuywrkdrhb/branch/main?svg=true)](https://ci.appveyor.com/project/DiscofromKPI/DevOps_prac/branch/main)
 
@@ -153,3 +153,6 @@ resource "aws_cloudwatch_log_group" "logs" {
 ```
 ### DNS
 Setup the DNS for your server using [Route53](https://console.aws.amazon.com/route53/v2)<br/>
+
+<h3 align="center" link="samoyed.space">samoyed.space</h3>
+### Check it out [samoyed.space](https://samoyed.space) <br/>
