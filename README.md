@@ -10,7 +10,7 @@ Also you need to have the [AWS Account](https://aws.amazon.com/) <br/>
 ### Getting Started
 
 Setup the credentials, you can find them at the [IAM AWS](https://console.aws.amazon.com/iam) <br/>
-Then save them and export like 
+Then save them and export:
 
 ```bash
 export AWS_ACCESS_KEY_ID="Here your key"
@@ -35,7 +35,7 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] 
 }
 ```
-Then setup the ```aws_intance```, use the KeyPair, which you can setup in the [AWS EC2 KeyPairs](https://us-east-2.console.aws.amazon.com/ec2/v2) <br/>
+Then setup the ```aws_intance```, use the Key Pair, which you can setup in the [AWS EC2 KeyPairs](https://us-east-2.console.aws.amazon.com/ec2/v2) <br/>
 Download the **.pem** file and import this key to your instance, keep the key hidden!
 
 Run the linux commands to setup docker and watchtower
@@ -51,7 +51,7 @@ provisioner "remote-exec" {
     ]
   }
 ```
-Setup the ```aws_security_group``` for the instance
+Setup the ```aws_security_group``` for the instance:
 ```tf
 resource "aws_security_group" "allow_web" {
   name        = "allow_web_traffic"
@@ -81,7 +81,7 @@ resource "aws_security_group" "allow_web" {
   }
 }
 ```
-You can also setup the **https** if you have the certificate
+You can also setup the **https** if you have the certificate.
 
 Also setup the **Elastic IP**. It commonly used to help with fault-tolerant instances or software. For example, if you have an EC2 instance that has an Elastic IP address and that instance is stopped or terminated, you can remap the address and re-associate it with another instance in your account.
 
@@ -90,4 +90,29 @@ resource "aws_eip" "lb" {
   instance = aws_instance.docker_site.id
   vpc      = true
 }
+```
+
+Setup the github actions to run pipelines and check image build(steps showing):
+```yml
+ steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      
+      - name: Lint Dockerfile
+        uses: luke142367/Docker-Lint-Action@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: straxseller/devops_prac:latest
 ```
